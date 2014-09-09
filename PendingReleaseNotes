@@ -1,7 +1,12 @@
-v0.86
------
-
-
-
 v0.87
 -----
+
+
+
+v0.88
+-----
+
+* Previously, the formatted output of 'ceph pg stat -f ...' was a full
+  pg dump that included all metadata about all PGs in the system.  It
+  is now a concise summary of high-level PG stats, just like the
+  unformatted 'ceph pg stat' command.
