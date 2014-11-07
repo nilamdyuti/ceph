@@ -1,3 +1,5 @@
+// -*- mode:C++; tab-width:8; c-basic-offset:2; indent-tabs-mode:t -*- 
+// vim: ts=8 sw=2 smarttab
 /*
  * Ceph - scalable distributed file system
  *
@@ -37,7 +39,8 @@ extern "C" {
 static ostream&
 _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodeIsa: ";
+  const std::string prefix = "ErasureCodeIsa: ";
+  return *_dout << prefix;
 }
 // -----------------------------------------------------------------------------
 

@@ -26,7 +26,8 @@
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodePluginJerasure: ";
+  const std::string prefix = "ErasureCodePluginJerasure: ";
+  return *_dout << prefix;
 }
 
 class ErasureCodePluginJerasure : public ErasureCodePlugin {

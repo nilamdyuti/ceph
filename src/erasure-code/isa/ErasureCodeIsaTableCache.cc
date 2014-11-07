@@ -40,7 +40,8 @@
 static ostream&
 _tc_prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodeIsaTableCache: ";
+  const std::string prefix = "ErasureCodeIsaTableCache: ";
+  return *_dout << prefix;
 }
 
 // -----------------------------------------------------------------------------

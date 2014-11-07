@@ -27,7 +27,8 @@
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodePluginSelectJerasure: ";
+  const std::string prefix =  "ErasureCodePluginSelectJerasure: ";
+  return *_dout << prefix;
 }
 
 static string get_variant() {

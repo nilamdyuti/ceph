@@ -29,7 +29,8 @@
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodePluginLrc: ";
+  const std::string prefix = "ErasureCodePluginLrc: ";
+  return *_dout << prefix;
 }
 
 class ErasureCodePluginLrc : public ErasureCodePlugin {

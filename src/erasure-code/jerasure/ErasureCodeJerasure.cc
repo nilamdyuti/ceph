@@ -35,7 +35,8 @@ extern "C" {
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodeJerasure: ";
+  const std::string prefix = "ErasureCodeJerasure: ";
+  return *_dout << prefix;
 }
 
 int ErasureCodeJerasure::create_ruleset(const string &name,

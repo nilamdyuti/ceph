@@ -25,7 +25,8 @@
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "-- op tracker -- ";
+  const std::string prefix = "-- op tracker -- ";
+  return *_dout << prefix;
 }
 
 void OpHistory::on_shutdown()

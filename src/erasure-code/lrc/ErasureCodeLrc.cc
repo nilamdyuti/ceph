@@ -37,7 +37,8 @@
 
 static ostream& _prefix(std::ostream* _dout)
 {
-  return *_dout << "ErasureCodeLrc: ";
+  const std::string prefix = "ErasureCodeLrc: ";
+  return *_dout << prefix;
 }
 
 int ErasureCodeLrc::create_ruleset(const string &name,

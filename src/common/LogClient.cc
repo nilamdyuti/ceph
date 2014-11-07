@@ -42,7 +42,8 @@
 #undef dout_prefix
 #define dout_prefix _prefix(_dout, this)
 static ostream& _prefix(std::ostream *_dout, LogClient *logc) {
-  return *_dout << "log_client ";
+  const std::string prefix = "log_client ";
+  return *_dout << prefix;
 }
 
 static ostream& _prefix(std::ostream *_dout, LogChannel *lc) {

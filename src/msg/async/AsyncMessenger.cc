@@ -35,11 +35,13 @@ static ostream& _prefix(std::ostream *_dout, AsyncMessenger *m) {
 }
 
 static ostream& _prefix(std::ostream *_dout, Processor *p) {
-  return *_dout << " Processor -- ";
+  const std::string prefix = " Processor -- ";
+  return *_dout << prefix;
 }
 
 static ostream& _prefix(std::ostream *_dout, Worker *w) {
-  return *_dout << "--";
+  const std::string prefix = "--";
+  return *_dout << prefix;
 }
 
 class C_handle_accept : public EventCallback {
