@@ -338,18 +338,21 @@ void Watch::unregister_cb()
   cb = NULL;
 }
 
-void Watch::connect(ConnectionRef con)
+void Watch::connect(ConnectionRef con, bool is_new)
 {
-  dout(10) << "connecting" << dendl;
+  dout(10) << "connecting, is_new=" << is_new << dendl;
   conn = con;
   OSD::Session* sessionref(static_cast<OSD::Session*>(con->get_priv()));
   if (sessionref) {
     sessionref->wstate.addWatch(self.lock());
     sessionref->put();
-    for (map<uint64_t, NotifyRef>::iterator i = in_progress_notifies.begin();
-	 i != in_progress_notifies.end();
-	 ++i) {
-      send_notify(i->second);
+    if (!is_new) {
+      // give watch a chance on in-progress notifies
+      for (map<uint64_t, NotifyRef>::iterator i = in_progress_notifies.begin();
+	   i != in_progress_notifies.end();
+	   ++i) {
+	send_notify(i->second);
+      }
     }
   }
   unregister_cb();

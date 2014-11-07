@@ -5225,6 +5225,7 @@ void ReplicatedPG::do_osd_op_effects(OpContext *ctx)
       dout(15) << "do_osd_op_effects found existing watch watcher " << watcher
 	       << dendl;
       watch = ctx->obc->watchers[watcher];
+      watch->connect(conn, false);
     } else {
       dout(15) << "do_osd_op_effects new watcher " << watcher
 	       << dendl;
@@ -5235,8 +5236,8 @@ void ReplicatedPG::do_osd_op_effects(OpContext *ctx)
 	make_pair(
 	  watcher,
 	  watch));
+      watch->connect(conn, true);
     }
-    watch->connect(conn);
   }
 
   for (list<watch_info_t>::iterator i = ctx->watch_disconnects.begin();

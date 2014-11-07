@@ -224,9 +224,10 @@ public:
   /// True if currently connected
   bool connected();
 
-  /// Transitions Watch to connected, unregister_cb, resends pending Notifies
+  /// Transitions Watch to connected, unregister_cb, resends Notifies if not new
   void connect(
-    ConnectionRef con ///< [in] Reference to new connection
+    ConnectionRef con, ///< [in] Reference to new connection
+    bool is_new        ///< [in] true if this is a new watch
     );
 
   /// Transitions watch to disconnected, register_cb
