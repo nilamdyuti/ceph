@@ -485,6 +485,10 @@ void Objecter::_linger_reconnect(LingerOp *info, int r)
 void Objecter::_send_linger_ping(LingerOp *info)
 {
   assert(rwlock.is_locked());
+  if (cct->_conf->objecter_inject_no_watch_ping) {
+    ldout(cct, 10) << __func__ << " " << info->linger_id << " SKIPPING" << dendl;
+    return;
+  }
   utime_t now = ceph_clock_now(NULL);
   ldout(cct, 10) << __func__ << " " << info->linger_id << " now " << now << dendl;
 
