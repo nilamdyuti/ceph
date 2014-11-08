@@ -368,6 +368,11 @@ unittest_ceph_compatset_LDADD = $(UNITTEST_LDADD) $(CEPH_GLOBAL)
 unittest_ceph_compatset_CXXFLAGS = $(UNITTEST_CXXFLAGS)
 check_PROGRAMS += unittest_ceph_compatset
 
+unittest_mds_types_SOURCES = test/fs/mds_types.cc
+unittest_mds_types_CXXFLAGS = $(UNITTEST_CXXFLAGS)
+unittest_mds_types_LDADD = $(UNITTEST_LDADD) $(CEPH_GLOBAL)
+check_PROGRAMS += unittest_mds_types
+
 unittest_osd_types_SOURCES = test/osd/types.cc
 unittest_osd_types_CXXFLAGS = $(UNITTEST_CXXFLAGS)
 unittest_osd_types_LDADD = $(UNITTEST_LDADD) $(CEPH_GLOBAL) 
@@ -783,6 +788,11 @@ ceph_test_rados_api_list_SOURCES = test/librados/list.cc
 ceph_test_rados_api_list_LDADD = $(LIBRADOS) $(UNITTEST_LDADD) $(RADOS_TEST_LDADD)
 ceph_test_rados_api_list_CXXFLAGS = $(UNITTEST_CXXFLAGS)
 bin_DEBUGPROGRAMS += ceph_test_rados_api_list
+
+ceph_test_rados_api_nlist_SOURCES = test/librados/nlist.cc
+ceph_test_rados_api_nlist_LDADD = $(LIBRADOS) $(UNITTEST_LDADD) $(RADOS_TEST_LDADD)
+ceph_test_rados_api_nlist_CXXFLAGS = $(UNITTEST_CXXFLAGS)
+bin_DEBUGPROGRAMS += ceph_test_rados_api_nlist
 
 ceph_test_rados_api_pool_SOURCES = test/librados/pool.cc
 ceph_test_rados_api_pool_LDADD = $(LIBRADOS) $(UNITTEST_LDADD) $(RADOS_TEST_LDADD)
